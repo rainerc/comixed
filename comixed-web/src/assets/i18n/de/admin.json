@@ -17,7 +17,7 @@
       "runtime": "Dauer",
       "started": "Gestartet",
       "success": "Erfolgreich?",
-      "url": "URL Accessed"
+      "url": "aufgerufene URL"
     },
     "load-entries": {
       "effect-failure": "Löschen der Web Audit Logs fehlgeschlagen"
