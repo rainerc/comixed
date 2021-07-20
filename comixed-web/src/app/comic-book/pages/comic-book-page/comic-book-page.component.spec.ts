@@ -178,34 +178,6 @@ describe('ComicBookPageComponent', () => {
     });
   });
 
-  describe('going to the previous comic in a series', () => {
-    beforeEach(() => {
-      component.comic = { ...COMIC, previousIssueId: OTHER_COMIC.id };
-      component.onPreviousComic();
-    });
-
-    it('redirects the browser', () => {
-      expect(router.navigate).toHaveBeenCalledWith(
-        ['library', 'comics', OTHER_COMIC.id],
-        { queryParamsHandling: 'preserve' }
-      );
-    });
-  });
-
-  describe('going to the next comic in a series', () => {
-    beforeEach(() => {
-      component.comic = { ...COMIC, nextIssueId: OTHER_COMIC.id };
-      component.onNextComic();
-    });
-
-    it('redirects the browser', () => {
-      expect(router.navigate).toHaveBeenCalledWith(
-        ['library', 'comics', OTHER_COMIC.id],
-        { queryParamsHandling: 'preserve' }
-      );
-    });
-  });
-
   describe('query parameter processing', () => {
     const TAB = 3;
 
@@ -291,10 +263,9 @@ describe('ComicBookPageComponent', () => {
   describe('updating the comic info', () => {
     beforeEach(() => {
       component.comic = COMIC;
-      spyOn(
-        confirmationService,
-        'confirm'
-      ).and.callFake((confirmation: Confirmation) => confirmation.confirm());
+      spyOn(confirmationService, 'confirm').and.callFake(
+        (confirmation: Confirmation) => confirmation.confirm()
+      );
       component.onUpdateComicInfo();
     });
 

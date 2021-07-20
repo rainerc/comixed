@@ -63,13 +63,15 @@ import { updateComicInfo } from '@app/comic-book/actions/update-comic-info.actio
   styleUrls: ['./comic-book-page.component.scss']
 })
 export class ComicBookPageComponent
-  implements OnInit, OnDestroy, AfterViewInit {
+  implements OnInit, OnDestroy, AfterViewInit
+{
   paramSubscription: Subscription;
   queryParamSubscription: Subscription;
   currentTab = 0;
   scrapingStateSubscription: Subscription;
   comicSubscription: Subscription;
   comicId = -1;
+  pageIndex = 0;
   comic: Comic;
   userSubscription: Subscription;
   isAdmin = false;
@@ -89,6 +91,7 @@ export class ComicBookPageComponent
   lastReadDates: LastRead[] = [];
   isRead = false;
   lastRead: LastRead = null;
+  showPages = false;
 
   constructor(
     private logger: LoggerService,
@@ -112,6 +115,7 @@ export class ComicBookPageComponent
       params => {
         if (+params[QUERY_PARAM_TAB]) {
           this.currentTab = +params[QUERY_PARAM_TAB];
+          this.updateShowPages();
         }
       }
     );
@@ -184,16 +188,6 @@ export class ComicBookPageComponent
     this.store.dispatch(resetScraping());
   }
 
-  onPreviousComic(): void {
-    this.logger.trace('Loading previous comic:', this.comic.previousIssueId);
-    this.routeToComic(this.comic.previousIssueId);
-  }
-
-  onNextComic(): void {
-    this.logger.trace('Loading next comic:', this.comic.nextIssueId);
-    this.routeToComic(this.comic.nextIssueId);
-  }
-
   onTabChange(index: number): void {
     this.logger.trace('Changing active tab:', index);
     updateQueryParam(
@@ -202,6 +196,11 @@ export class ComicBookPageComponent
       QUERY_PARAM_TAB,
       `${index}`
     );
+    this.updateShowPages();
+  }
+
+  private updateShowPages(): void {
+    this.showPages = this.showPages || this.currentTab === 2;
   }
 
   onLoadScrapingVolumes(

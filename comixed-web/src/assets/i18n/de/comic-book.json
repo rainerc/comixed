@@ -28,10 +28,13 @@
       "locations": "Locations In This Issue ({count})",
       "other-details": "Other Comic Details",
       "page-count": "# Of Pages",
+      "page-title": "Page {which} Of {count}",
       "publisher": "Publisher",
       "scan-type": "Scan Type",
       "scraping-notes": "Scraping Notes",
       "series": "Series Name",
+      "show-next-comic-page": "Go to next page...",
+      "show-previous-comic-page": "Go to previous page...",
       "sort-name": "Sort Name",
       "stories": "Story Arcs In This Issue ({count})",
       "teams": "Teams In This Issue ({count})",
@@ -54,7 +57,8 @@
       "title": "Save Changes To Comic"
     },
     "text": {
-      "comic-changed": "Changed",
+      "comic-changed": "Comic details have changed.",
+      "comicvine-issue-link": "ComicVine Details Page",
       "file-entries": "There {count, plural, =1{is one file} other{are # files}} in this archive.",
       "filesize": "{size, plural, =1{One byte} other{# bytes}}",
       "state-ADDED": "Unchanged",

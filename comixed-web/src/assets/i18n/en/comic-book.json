@@ -28,6 +28,7 @@
       "locations": "Locations In This Issue ({count})",
       "other-details": "Other Comic Details",
       "page-count": "# Of Pages",
+      "page-title": "Page {which} Of {count}",
       "publisher": "Publisher",
       "scan-type": "Scan Type",
       "scraping-notes": "Scraping Notes",
@@ -54,7 +55,8 @@
       "title": "Save Changes To Comic"
     },
     "text": {
-      "comic-changed": "Changed",
+      "comic-changed": "Comic details have changed.",
+      "comicvine-issue-link": "ComicVine Details Page",
       "file-entries": "There {count, plural, =1{is one file} other{are # files}} in this archive.",
       "filesize": "{size, plural, =1{One byte} other{# bytes}}",
       "state-ADDED": "Unchanged",
@@ -75,6 +77,8 @@
       "match-2": "Exact match.",
       "save-changes": "Saves changes to this comic.",
       "scrape-comic": "Scrape this comic.",
+      "show-next-comic-page": "Go to next page...",
+      "show-previous-comic-page": "Go to previous page...",
       "undo-changes": "Undo changes to this comic.",
       "update-comic-info": "Update the metadata in this comic file."
     },

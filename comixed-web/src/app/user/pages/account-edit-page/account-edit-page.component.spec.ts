@@ -35,6 +35,9 @@ import { saveCurrentUser } from '@app/user/actions/user.actions';
 import { Confirmation } from '@app/core/models/confirmation';
 import { TitleService } from '@app/core/services/title.service';
 import { ConfirmationService } from '@app/core/services/confirmation.service';
+import { MatIconModule } from '@angular/material/icon';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { UserCardComponent } from '@app/user/components/user-card/user-card.component';
 
 describe('AccountEditPageComponent', () => {
   const USER = USER_READER;
@@ -50,13 +53,15 @@ describe('AccountEditPageComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [AccountEditPageComponent],
+      declarations: [AccountEditPageComponent, UserCardComponent],
       imports: [
         FormsModule,
         ReactiveFormsModule,
         LoggerModule.forRoot(),
         TranslateModule.forRoot(),
-        MatDialogModule
+        MatDialogModule,
+        MatIconModule,
+        MatToolbarModule
       ],
       providers: [
         provideMockStore({ initialState }),
@@ -226,10 +231,9 @@ describe('AccountEditPageComponent', () => {
     const EMAIL = USER.email.substr(1);
 
     beforeEach(() => {
-      spyOn(
-        confirmationService,
-        'confirm'
-      ).and.callFake((confirmation: Confirmation) => confirmation.confirm());
+      spyOn(confirmationService, 'confirm').and.callFake(
+        (confirmation: Confirmation) => confirmation.confirm()
+      );
       component.user = USER;
       component.userForm.controls.email.setValue(EMAIL);
       component.userForm.controls.password.setValue(PASSWORD);
@@ -252,10 +256,9 @@ describe('AccountEditPageComponent', () => {
     const EMAIL = USER.email.substr(1);
 
     beforeEach(() => {
-      spyOn(
-        confirmationService,
-        'confirm'
-      ).and.callFake((confirmation: Confirmation) => confirmation.confirm());
+      spyOn(confirmationService, 'confirm').and.callFake(
+        (confirmation: Confirmation) => confirmation.confirm()
+      );
       component.user = USER;
       component.userForm.controls.email.setValue(EMAIL);
       component.userForm.controls.password.setValue(PASSWORD);

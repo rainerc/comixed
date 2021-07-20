@@ -67,6 +67,10 @@ $cx-selected-comic-color: #ffffff;
   height: 100%;
 }
 
+.cx-top-0 {
+  top: 0px;
+}
+
 .cx-overflow-y-scroll {
   overflow-y: scroll;
 }
@@ -97,6 +101,10 @@ $cx-selected-comic-color: #ffffff;
   padding-left: 25px !important;
 }
 
+.cx-padding-right-0 {
+  padding-right: 0px !important;
+}
+
 .cx-padding-right-5 {
   padding-right: 5px !important;
 }
@@ -121,6 +129,16 @@ $cx-selected-comic-color: #ffffff;
   padding: 2px;
 }
 
+.cx-padding-5 {
+  padding: 5px;
+}
+
+.cx-border-primary-1 {
+  border-style: solid;
+  border-color: var(--primary-color);
+  border-width: 1px;
+}
+
 // margins
 
 .cx-margin-left-5 {
@@ -139,6 +157,10 @@ $cx-selected-comic-color: #ffffff;
   margin-bottom: 50px !important;
 }
 
+.cx-margin-bottom-100px {
+  margin-bottom: 100px !important;
+}
+
 .cx-margin-2 {
   margin: 2px;
 }
@@ -148,6 +170,13 @@ $cx-selected-comic-color: #ffffff;
 $cx-column-small: 50px;
 $cx-column-medium: 150px;
 $cx-column-large: 325px;
+
+// table rows
+
+.cx-selected-row {
+  background-color: var(--accent-lighter-color);
+  color: var(--text-accent-lighter-color);
+}
 
 // text layout
 
@@ -196,17 +225,25 @@ $cx-column-large: 325px;
 }
 
 .cx-align-content-center {
-  text-align: center;
+  text-align: center !important;
+}
+
+.cx-align-text-left {
+  text-align: left !important;
 }
 
 .cx-align-text-right {
-  text-align: right;
+  text-align: right !important;
 }
 
 .cx-comic-detail-card-container {
   display: flex;
   flex-wrap: wrap;
   flex-direction: row;
+}
+
+.cx-vertical-scrolling {
+  overflow-y: scroll;
 }
 
 // flexible containers
@@ -221,11 +258,22 @@ $cx-column-large: 325px;
   flex-direction: column;
 }
 
+.cx-grow-0 {
+  flex-grow: 0;
+}
+
 .cx-grow-1 {
   flex-grow: 1;
 }
 
 // buttons
+
+.mat-button,
+.mat-icon-button,
+.mat-stroked-button,
+.mat-flat-button {
+  overflow-y: hidden !important;
+}
 
 .cx-toolbar-button {
   margin-right: 5px !important;
@@ -264,11 +312,21 @@ $cx-column-large: 325px;
 }
 
 .cx-primary-light-background {
-  background: var(--primary-lighter-color);
-  color: var(--text-primary-lighter-color);
+  background: var(--primary-lighter-color) !important;
+  color: var(--text-primary-lighter-color) !important;
 }
 
 .cx-primary-dark-background {
-  background: var(--primary-darker-color);
-  color: var(--text-primary-darker-color);
+  background: var(--primary-darker-color) !important;
+  color: var(--text-primary-darker-color) !important;
+}
+
+.cx-accent-light-background {
+  background-color: var(--accent-lighter-color);
+  color: var(--text-accent-lighter-color);
+}
+
+.cx-accent-dark-background {
+  background-color: var(--accent-darker-color);
+  color: var(--text-accent-darker-color);
 }

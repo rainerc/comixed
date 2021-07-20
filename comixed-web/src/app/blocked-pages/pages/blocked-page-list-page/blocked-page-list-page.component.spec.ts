@@ -45,6 +45,8 @@ import { uploadBlockedPages } from '@app/blocked-pages/actions/upload-blocked-pa
 import { deleteBlockedPages } from '@app/blocked-pages/actions/delete-blocked-pages.actions';
 import { ConfirmationService } from '@app/core/services/confirmation.service';
 import { SelectableListItem } from '@app/core/models/ui/selectable-list-item';
+import { MatIconModule } from '@angular/material/icon';
+import { MatTooltipModule } from '@angular/material/tooltip';
 
 describe('BlockedPageListPageComponent', () => {
   const ENTRIES = [BLOCKED_PAGE_1, BLOCKED_PAGE_3, BLOCKED_PAGE_5];
@@ -69,7 +71,9 @@ describe('BlockedPageListPageComponent', () => {
         MatTableModule,
         MatPaginatorModule,
         MatCheckboxModule,
-        MatDialogModule
+        MatDialogModule,
+        MatIconModule,
+        MatTooltipModule
       ],
       providers: [provideMockStore({ initialState }), ConfirmationService]
     }).compileComponents();
@@ -195,10 +199,9 @@ describe('BlockedPageListPageComponent', () => {
 
     beforeEach(() => {
       component.showUploadRow = true;
-      spyOn(
-        confirmationService,
-        'confirm'
-      ).and.callFake((confirmation: Confirmation) => confirmation.confirm());
+      spyOn(confirmationService, 'confirm').and.callFake(
+        (confirmation: Confirmation) => confirmation.confirm()
+      );
       component.onFileSelected(EVENT);
     });
 
@@ -228,10 +231,9 @@ describe('BlockedPageListPageComponent', () => {
       });
       component.dataSource.data.forEach(entry => (entry.selected = false));
       component.dataSource.data[0].selected = true;
-      spyOn(
-        confirmationService,
-        'confirm'
-      ).and.callFake((confirmation: Confirmation) => confirmation.confirm());
+      spyOn(confirmationService, 'confirm').and.callFake(
+        (confirmation: Confirmation) => confirmation.confirm()
+      );
       component.onDeleteEntries();
     });
 

@@ -1,7 +1,7 @@
 # GOAL: Create pre-releases when changes are pushed to a release branch. On success it creates a tag for the build.
 #       Such a release can then be promoted to a full release.
 
-name: "Publish release branch changes"
+name: "Latest Release Build"
 
 on:
   push:
@@ -32,6 +32,6 @@ jobs:
           repo_token: "${{ secrets.GITHUB_TOKEN }}"
           draft: false
           prerelease: true
-          title: Changes For 0.9.0-SNAPSHOT
+          title: Changes For 0.10.0-SNAPSHOT
           files: |
-            release/comixed-release-0.9.0-SNAPSHOT-RELEASE.zip
+            release/comixed-release-0.10.0-SNAPSHOT-RELEASE.zip

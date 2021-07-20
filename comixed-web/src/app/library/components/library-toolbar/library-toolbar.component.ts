@@ -34,7 +34,6 @@ import {
 import { TranslateService } from '@ngx-translate/core';
 import { ConfirmationService } from '@app/core/services/confirmation.service';
 import { Router } from '@angular/router';
-import { saveUserPreference } from '@app/user/actions/user.actions';
 import {
   PAGINATION_OPTIONS,
   PAGINATION_PREFERENCE
@@ -42,6 +41,7 @@ import {
 import { Subscription } from 'rxjs';
 import { MatPaginator } from '@angular/material/paginator';
 import { selectDisplayState } from '@app/library/selectors/display.selectors';
+import { saveUserPreference } from '@app/user/actions/user.actions';
 
 @Component({
   selector: 'cx-library-toolbar',
@@ -49,7 +49,8 @@ import { selectDisplayState } from '@app/library/selectors/display.selectors';
   styleUrls: ['./library-toolbar.component.scss']
 })
 export class LibraryToolbarComponent
-  implements OnInit, OnDestroy, AfterViewInit {
+  implements OnInit, OnDestroy, AfterViewInit
+{
   @ViewChild(MatPaginator) paginator: MatPaginator;
 
   @Input() comics: Comic[] = [];
@@ -73,7 +74,7 @@ export class LibraryToolbarComponent
     this.paginationSubscription = this.store
       .select(selectDisplayState)
       .subscribe(state => {
-        this._pagination = state.pageSize;
+        this._pagination = state.pagination;
       });
   }
 

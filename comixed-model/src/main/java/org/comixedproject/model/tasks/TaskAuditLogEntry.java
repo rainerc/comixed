@@ -39,6 +39,8 @@ import org.comixedproject.views.View;
 public class TaskAuditLogEntry {
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
+  @JsonProperty("id")
+  @JsonView(View.AuditLogEntryList.class)
   @Getter
   @Setter
   private Long id;
@@ -73,7 +75,8 @@ public class TaskAuditLogEntry {
   @JsonView(View.AuditLogEntryList.class)
   private Boolean successful;
 
-  @Column(name = "Description", nullable = false, updatable = false, length = 2048)
+  @Column(name = "Description", nullable = false, updatable = false)
+  @Lob
   @Getter
   @Setter
   @JsonProperty("description")

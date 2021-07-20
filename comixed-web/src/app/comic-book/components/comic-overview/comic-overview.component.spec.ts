@@ -24,6 +24,8 @@ import { TranslateModule } from '@ngx-translate/core';
 import { COMIC_1 } from '@app/comic-book/comic-book.fixtures';
 import { RouterTestingModule } from '@angular/router/testing';
 import { ComicBookState } from '@app/comic-book/models/comic-book-state';
+import { MatGridListModule } from '@angular/material/grid-list';
+import { ComicvineIssueLinkPipe } from '@app/comic-book/pipes/comicvine-issue-link.pipe';
 
 describe('ComicOverviewComponent', () => {
   const COMIC = COMIC_1;
@@ -33,7 +35,11 @@ describe('ComicOverviewComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ComicOverviewComponent, ComicCoverUrlPipe],
+      declarations: [
+        ComicOverviewComponent,
+        ComicCoverUrlPipe,
+        ComicvineIssueLinkPipe
+      ],
       imports: [
         LoggerModule.forRoot(),
         TranslateModule.forRoot(),
@@ -42,7 +48,8 @@ describe('ComicOverviewComponent', () => {
             path: '*',
             redirectTo: ''
           }
-        ])
+        ]),
+        MatGridListModule
       ]
     }).compileComponents();
 
